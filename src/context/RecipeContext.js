@@ -9,6 +9,10 @@ export const RecipeProvider = ({ children }) => {
         loading: false,
     }
 
+    const APP_ID = process.env.REACT_APP_ID
+    const APP_KEY = process.env.REACT_APP_KEY
+
+
     const [state, dispatch] = useReducer(recipeReducer, initialState)
 
     // Get Recipes
@@ -16,9 +20,9 @@ export const RecipeProvider = ({ children }) => {
     const getRecipes = async (item) => {
         setLoading()
         const params = new URLSearchParams({
-            q: { item },
-            app_id: ,
-            app_key: ,
+            q: item,
+            app_id: APP_ID,
+            app_key: APP_KEY,
             type: 'public',
         })
         const response = await fetch(`https://api.edamam.com/api/recipes/v2?${params}`)

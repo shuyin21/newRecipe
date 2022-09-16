@@ -50,9 +50,9 @@ const Home = () => {
                 <input type="text" className='search-bar' value={search} onChange={updateSearch} />
                 <button type='submit' className='search-button' >Search</button>
             </form>
-            <div>
-                {recipes.map((recipe) => (
-                    <Recipe key={recipe.recipe.title} recipe={recipe.recipe} />
+            <div className='recipe-wrapper'>
+                {recipes.map((recipe, idx) => (
+                    <Recipe key={idx} recipe={recipe.recipe} />
                 ))
                 }
 
